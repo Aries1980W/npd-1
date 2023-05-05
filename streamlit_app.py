@@ -34,6 +34,7 @@ import random
 from keybert import KeyBERT
 kw_model = KeyBERT()
 import easyocr
+reader = easyocr.Reader(['ch_sim','en'])
 
 ############################################################################
 dropword = ['江苏省','患者禁用','【不良反应】','理性阅读','以上对比','油度检测','侧板固定','物品搬运','结构重构','用户自备','踢脚线','切割封板','水款标识','浊度检测','铰链调整','门板安装','安装建议','水效标识','一级标准','清洁指数','干燥指数','不得安装','点击咨询','底板开','家电家私','点击查看价格','联系方式','随机发送','官方旗舰店','售后', '服务', '京仓', '发货','仓配', '出库', '授权', '风险', '放心购', '补寄', '配送', '亲们', '仓离', '限时达', '免费补发', '先验货', '再签收','送货', '上门', 
@@ -193,15 +194,13 @@ def get_pdt_detail(key_word):
             for chunk in response.iter_content():
                 fd.write(chunk)
         pic_code=pic_code+1
-        result = ocr.ocr(download, cls=True)
-        # st.write(result)
+        result = reader.readtext(download)    #result = ocr.ocr(download, cls=True)
+        st.write(result)
 
         temp=[]
         
         for line in result:
-            for text in line:
-                
-                temp.append(text[1][0])
+            temp.append(text[1])
         # st.write(temp)
         txts.append(','.join(temp))       # 把一个图片的所有内容装到一个字符串里，方便key bert 解析去掉没有的信息
         
