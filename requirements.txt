@@ -5,7 +5,7 @@ numpy
 matplotlib
 hypertools
 keybert
-pytorch
+torch
 easyocr
 opencv-python-headless
 lxml
