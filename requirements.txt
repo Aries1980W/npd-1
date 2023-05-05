@@ -5,7 +5,7 @@ numpy
 matplotlib
 hypertools
 keybert
-torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu117
+pytorch
 easyocr
 opencv-python-headless
 lxml
