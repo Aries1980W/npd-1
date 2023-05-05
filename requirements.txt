@@ -1,9 +1,11 @@
 pandas
 plotly
 streamlit
-opencv_python
 numpy
 matplotlib
 hypertools
 keybert
-paddleocr
+paddlepaddle==2.4.2 -i https://pypi.tuna.tsinghua.edu.cn/simple
+paddleocr>=2.0.1
+opencv-python-headless
+lxml
