@@ -29,10 +29,11 @@ from scipy.cluster.hierarchy import dendrogram, linkage
 from sklearn.metrics.pairwise import cosine_similarity
 import hypertools as hyp
 import random
-from paddleocr import PaddleOCR, draw_ocr# Paddleocr目前支持中英文、英文、法语、德语、韩语、日语，可以通过修改lang参数进行切换   # 参数依次为`ch`, `en`, `french`, `german`, `korean`, `japan`。
-ocr = PaddleOCR(use_angle_cls=True, lang="ch") # need to run only once to download and load model into memory
+# from paddleocr import PaddleOCR, draw_ocr# Paddleocr目前支持中英文、英文、法语、德语、韩语、日语，可以通过修改lang参数进行切换   # 参数依次为`ch`, `en`, `french`, `german`, `korean`, `japan`。
+# ocr = PaddleOCR(use_angle_cls=True, lang="ch") # need to run only once to download and load model into memory
 from keybert import KeyBERT
 kw_model = KeyBERT()
+import easyocr
 
 ############################################################################
 dropword = ['江苏省','患者禁用','【不良反应】','理性阅读','以上对比','油度检测','侧板固定','物品搬运','结构重构','用户自备','踢脚线','切割封板','水款标识','浊度检测','铰链调整','门板安装','安装建议','水效标识','一级标准','清洁指数','干燥指数','不得安装','点击咨询','底板开','家电家私','点击查看价格','联系方式','随机发送','官方旗舰店','售后', '服务', '京仓', '发货','仓配', '出库', '授权', '风险', '放心购', '补寄', '配送', '亲们', '仓离', '限时达', '免费补发', '先验货', '再签收','送货', '上门', 
