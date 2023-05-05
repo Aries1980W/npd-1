@@ -200,8 +200,7 @@ def get_pdt_detail(key_word):
         temp=[]
         
         for line in result:
-            for text in line:
-                temp.append(text[1])
+            temp.append(line[1])
         st.write(temp)
         txts.append(','.join(temp))       # 把一个图片的所有内容装到一个字符串里，方便key bert 解析去掉没有的信息
         
