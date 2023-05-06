@@ -183,17 +183,18 @@ def get_pdt_detail(key_word):
             a='https://img'+ i
             pic_url.append(a)#             print('这个图片的url地址是___:', a)
 
-    pic_code=1
+    pic_codes=1
     # if os.path.exists(path2):
     kw_word=[]
     for i in pic_url:
         response=requests.get(i,headers =headers) 
-        pic_name = key_word + '_' + str(pic_code) #key_wordEN 
-        download=pic_name + '.jpg'                 #  path2 + '/'+ 
+        pic_name = key_word + '_' + str(pic_codes) #key_wordEN 
+        download=pic_name + '.jpg'                 #  path2 + '/'+
+        st.write(download)
         with open(download, 'wb') as fd:
             for chunk in response.iter_content():
                 fd.write(chunk)
-        pic_code=pic_code+1
+        pic_codes=pic_codes+1
         result = reader.readtext(download)    #result = ocr.ocr(download, cls=True)
 #         st.write(result)
 
@@ -292,7 +293,8 @@ st.write('-----------------------------------')
 
 col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12 = st.columns(12, gap="small")
 with col1:
-    st.image(Image.open(str(pdt_code[0])+'_'+'1'+'.jpg')) #,width=320 ,use_column_width=True  
+    st.write(str(pdt_code[0])+'_'+'1'+'.jpg')        
+    st.image(Image.open(str(pdt_code[0])+'_'+'1'+'.jpg')) #,width=320 ,use_column_width=True
 with col2:
     st.image(Image.open(str(pdt_code[0])+'_'+'2'+'.jpg'))
 with col3:
