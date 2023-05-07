@@ -191,7 +191,7 @@ def get_pdt_detail(key_word):
         response=requests.get(i,headers =headers) 
         pic_name = key_word + '_' + str(pic_codes) #key_wordEN 
         download=pic_name + '.jpg'                 #  path2 + '/'+
-        st.write(download)
+#         st.write(download)
         with open(download, 'wb') as fd:
             for chunk in response.iter_content():
                 fd.write(chunk)
@@ -199,7 +199,7 @@ def get_pdt_detail(key_word):
 #         st.image(Image.open(download))
         try:
             result = reader.readtext(download)    #result = ocr.ocr(download, cls=True)
-            st.write(result)
+#             st.write(result)
         except Exception as e:
             st.write('wrong picture')
 
@@ -207,7 +207,7 @@ def get_pdt_detail(key_word):
         
         for line in result:
             temp.append(line[1])
-        st.write(temp)
+#         st.write(temp)
         txts.append(','.join(temp))       # 把一个图片的所有内容装到一个字符串里，方便key bert 解析去掉没有的信息
         
         aa= kw_model.extract_keywords((',').join(temp), 
