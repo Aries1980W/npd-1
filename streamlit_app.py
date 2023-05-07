@@ -196,14 +196,17 @@ def get_pdt_detail(key_word):
                 fd.write(chunk)
         pic_codes=pic_codes+1
 #         st.image(Image.open(download))
-        result = reader.readtext(download)    #result = ocr.ocr(download, cls=True)
-        st.write(result)
+        try:
+            result = reader.readtext(download)    #result = ocr.ocr(download, cls=True)
+            st.write(result)
+        except Exception as e:
+            st.write('wrong picture')
 
         temp=[]
         
         for line in result:
             temp.append(line[1])
-        st.write(temp)
+#         st.write(temp)
         txts.append(','.join(temp))       # 把一个图片的所有内容装到一个字符串里，方便key bert 解析去掉没有的信息
         
         aa= kw_model.extract_keywords((',').join(temp), 
