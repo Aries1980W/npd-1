@@ -203,13 +203,13 @@ def get_pdt_detail(key_word):
         
         for line in result:
             temp.append(line[1])
-#         st.write(temp)
+        st.write(temp)
         txts.append(','.join(temp))       # 把一个图片的所有内容装到一个字符串里，方便key bert 解析去掉没有的信息
         
         aa= kw_model.extract_keywords((',').join(temp), 
                               keyphrase_ngram_range=(1,1), diversity=1, top_n=5) #use_mmr=True
         kw_word=kw_word + [j[0] for j in aa]
-    # st.write(kw_word) # ['aaa','bbb','ccc'] 还需要再合并，才能装到df里去
+    st.write(kw_word) # ['aaa','bbb','ccc'] 还需要再合并，才能装到df里去
 
     txts=(',').join(txts)
     pic_url=(',').join(pic_url)
