@@ -265,9 +265,6 @@ for key_word in pdt_code:
 
 # st.dataframe(df_pdt_detail,use_container_width=True )
 
-address=df_pdt_detail['url1'][0]
-st.write(address)
-
 col1, col2, col3, col4, col5, col6 = st.columns(6)
 with col1:
     st.info('**型号**')
