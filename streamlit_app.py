@@ -180,7 +180,7 @@ def get_pdt_detail(key_word):
     else:
         pic_urls=re.findall("//img(.*?)\); height",dzdp2) #         print('这个图片的地址是标准img模式,地址是___:', product_url)
         for i in pic_urls:
-            i=i.replace('gif','jpg)
+            i=i.replace('gif','jpg')
             a='https://img'+ i
             pic_url.append(a)#             print('这个图片的url地址是___:', a)
 
