@@ -195,6 +195,7 @@ def get_pdt_detail(key_word):
             for chunk in response.iter_content():
                 fd.write(chunk)
         pic_codes=pic_codes+1
+        st.image(Image.open(download)
         result = reader.readtext(download)    #result = ocr.ocr(download, cls=True)
 #         st.write(result)
 
@@ -292,8 +293,7 @@ st.caption(df_pdt_detail['pdt_info'][0])
 st.write('-----------------------------------')
 
 col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, col12 = st.columns(12, gap="small")
-with col1:
-    st.write(str(pdt_code[0])+str('_1.jpg'))        
+with col1:    
     st.image(Image.open(str(pdt_code[0])+str('_1.jpg'))) #,width=320 ,use_column_width=True
 with col2:
     st.image(Image.open(str(pdt_code[0])+'_'+'2'+'.jpg'))
