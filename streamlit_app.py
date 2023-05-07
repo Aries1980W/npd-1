@@ -195,7 +195,7 @@ def get_pdt_detail(key_word):
             for chunk in response.iter_content():
                 fd.write(chunk)
         pic_codes=pic_codes+1
-        st.image(Image.open(download)
+        st.image(Image.open(download))
         result = reader.readtext(download)    #result = ocr.ocr(download, cls=True)
 #         st.write(result)
 
