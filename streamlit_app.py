@@ -261,6 +261,7 @@ for key_word in pdt_code:
         temp,kw_words = get_pdt_detail(key_word)
         df_pdt_detail=pd.concat([df_pdt_detail,temp])
     except Exception as e:
+        st.write('报错:', e)
         continue
 
 # st.dataframe(df_pdt_detail,use_container_width=True )
